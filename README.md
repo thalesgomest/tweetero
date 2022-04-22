@@ -34,16 +34,16 @@ Before starting, you'll need to have the following tools installed on your machi
 
 
 ```bash
-# Clone this repository
+1. Clone this repository
 $ git clone <https://github.com/thalesgomest/tweteroo>
 
-# #change to project directory
+2. Change to project directory
 $ cd tweteroo
 
-# install the dependencies
+3. Install the dependencies
 $ npm or yarn install
 
-# to run in dev
+4. to run in dev
 $ node index.js
 
 # The server will start on port:5000 - go to <http://localhost:5000>
