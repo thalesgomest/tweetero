@@ -22,7 +22,7 @@
 ## Project Description
 <p align="justify">My first project back-end was build the Tweetero API, a clone of Twitter. It is a social network where people post "What's on your mind?"</p>
 
-### Status
+## Status
 ![status-finished](https://user-images.githubusercontent.com/97575616/152926720-d042178b-24c0-4d6b-94fb-0ccbd3c082cc.svg)
 <!-- ![status-in-progress](https://user-images.githubusercontent.com/97575616/153774620-d6a0a615-9d38-4402-ae72-20c52f8bbd5c.svg) -->
 
@@ -33,19 +33,24 @@
 Before starting, you'll need to have the following tools installed on your machine: [Node.js](https://nodejs.org/en/),
 
 
-```bash
 1. Clone this repository
-$ git clone <https://github.com/thalesgomest/tweteroo>
-
+```bash
+$ git clone https://github.com/thalesgomest/tweteroo.git
+```
 2. Change to project directory
+```bash
 $ cd tweteroo
-
+```
 3. Install the dependencies
+```bash
 $ npm or yarn install
-
+```
 4. to run in dev
+```bash
 $ node index.js
-
+```
+5. Server
+```bash
 # The server will start on port:5000 - go to <http://localhost:5000>
 ```
 
