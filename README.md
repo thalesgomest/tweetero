@@ -12,12 +12,11 @@
 
 
 
-<!-- ## Table of contents
+## Table of contents
 * [Project Description](#project-description)
 * [Status](#status)
-* [Mockup](#mockup)
-* [Requirements](#requirements)
-* [Author](#author) -->
+* [How to run](#how-to-run)
+* [Author](#author)
 
 
 ## Project Description
@@ -29,7 +28,7 @@
 
 ## How to run
 
-### requirements:
+### Requirements:
 
 Before starting, you'll need to have the following tools installed on your machine: [Node.js](https://nodejs.org/en/),
 
