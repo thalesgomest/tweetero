@@ -7,7 +7,63 @@ const app = express();
 app.use(cors());
 
 let users = [];
-let tweets = [];
+let tweets = [
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '100',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '110',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '120',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '130',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '140',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '150',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '160',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '170',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '180',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '190',
+    },
+    {
+        username: 'bobesponja',
+        avatar: 'https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info',
+        tweet: '200',
+    },
+];
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
@@ -32,13 +88,37 @@ app.post('/sign-up', (req, res) => {
 });
 
 app.get('/tweets', (req, res) => {
-    const { page } = req.query;
-    if (page <= 0) {
+    const page = parseInt(req.query.page);
+
+    if (!page || page <= 0) {
         res.status(400).send('Informe uma página válida!');
     } else {
         const limit = 10;
-        let aux = tweets.slice((page - 1) * limit, page * limit);
-        res.status(200).send(aux);
+        const searchTweet = tweets.length - page * limit;
+        const firstTweet = (page - 1) * limit;
+
+        let initialValue;
+        if (tweets.length <= limit) {
+            initialValue = 0;
+        } else {
+            if (searchTweet < 0) {
+                initialValue = 0;
+            } else {
+                initialValue = searchTweet;
+            }
+        }
+
+        let finalValue;
+        if (firstTweet > tweets.length) {
+            finalValue = 0;
+        } else {
+            if (initialValue === 0) {
+                finalValue = tweets.length - firstTweet;
+            } else {
+                finalValue = initialValue + limit;
+            }
+        }
+        res.send(tweets.slice(initialValue, finalValue).reverse());
     }
 });
 
